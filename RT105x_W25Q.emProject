@@ -1,0 +1,142 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="RT105x_W25Q" target="8" version="2">
+  <project Name="RT105x_W25Q">
+    <configuration
+      Name="Common"
+      Placement="RAM"
+      Target="MIMXRT1052xxxxx"
+      arm_architecture="v7EM"
+      arm_core_type="Cortex-M7"
+      arm_endian="Little"
+      arm_fp_abi="Hard"
+      arm_fpu_type="FPv5-D16"
+      arm_interwork="No"
+      arm_linker_heap_size="256"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="256"
+      arm_simulator_memory_simulation_parameter="RAM;0x20000000;0x00020000;RAM;0x60000000;0x04000000;RAM;0x00000000;0x00020000;RAM;0x20200000;0x00040000;RAM;0x80000000;0x02000000"
+      arm_target_debug_interface_type="ADIv5"
+      arm_target_device_name="MCIMXRT1052"
+      arm_target_interface_type="SWD"
+      c_preprocessor_definitions="CPU_MIMXRT1052CVJ5B;MIMXRT1052xxxxx;__MIMXRT1052_FAMILY;RAM_PLACEMENT=1"
+      c_user_include_directories=".;./Source;./CMSIS_4/CMSIS/Include;./MIMXRT1052/CMSIS/Device/Include;./board;./drivers"
+      debug_register_definition_file="$(ProjectDir)/MIMXRT1052_Registers.xml"
+      debug_target_connection="J-Link"
+      gcc_entry_point="Reset_Handler"
+      linker_memory_map_file="$(ProjectDir)/MIMXRT1052xxxxx_MemoryMap.xml"
+      linker_section_placement_file="$(ProjectDir)/ram_placement.xml"
+      macros="DeviceHeaderFile=$(PackagesDir)/MIMXRT1052/CMSIS/Device/Include/MIMXRT1052.h;DeviceLibraryIdentifier=;DeviceSystemFile=$(PackagesDir)/MIMXRT1052/CMSIS/Device/Source/system_MIMXRT1052.c;DeviceVectorsFile=$(PackagesDir)/MIMXRT1052/Source/MIMXRT1052_Vectors.s;DeviceFamily=MIMXRT1052;Target=MIMXRT1052xxxxx;Placement=RAM"
+      project_directory=""
+      project_type="Executable"
+      target_reset_script="Reset();"
+      target_script_file="$(ProjectDir)/MIMXRT1052_Target.js"
+      target_trace_initialize_script="EnableTrace(&quot;$(TraceInterfaceType)&quot;)" />
+    <folder Name="CMSIS Files">
+      <file file_name="MIMXRT1052/CMSIS/Device/Include/MIMXRT1052.h" />
+      <file file_name="MIMXRT1052/CMSIS/Device/Source/system_MIMXRT1052.c">
+        <configuration
+          Name="Common"
+          default_code_section=".init"
+          default_const_section=".init_rodata" />
+        <configuration Name="Release" build_exclude_from_build="Yes" />
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
+    </folder>
+    <folder Name="Source Files">
+      <configuration Name="Common" filter="c;cpp;cxx;cc;h;s;asm;inc" />
+      <file file_name="Source/FlashDev.c" />
+      <file file_name="Source/FlashOS.h" />
+      <file file_name="Source/FlashPrg.c" />
+      <file file_name="Source/main.c">
+        <configuration Name="Release" build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="Source/flexspi_cfg.h" />
+      <file file_name="Source/flexspi_nor_flash_ops.c" />
+    </folder>
+    <folder Name="System Files">
+      <file file_name="MIMXRT1052/Source/MIMXRT1052_Startup.s">
+        <configuration Name="Release" build_exclude_from_build="Yes" />
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="MIMXRT1052/Source/MIMXRT1052_Vectors.s">
+        <configuration Name="Common" file_type="Assembly" />
+        <configuration Name="Release" build_exclude_from_build="Yes" />
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="thumb_crt0.s">
+        <configuration Name="Release" build_exclude_from_build="Yes" />
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
+    </folder>
+    <configuration
+      Name="Debug"
+      arm_fpu_type="FPv5-D16"
+      c_preprocessor_definitions="EXCLUDE_LIBC"
+      c_user_include_directories=""
+      gcc_debugging_level="Level 3"
+      gcc_entry_point="main"
+      gcc_optimization_level="None"
+      linker_section_placement_file="$(ProjectDir)/placement_debug.xml"
+      target_script_file="$(ProjectDir)/MIMXRT1052/Scripts/MIMXRT1052_Target.js" />
+    <folder Name="Board Files">
+      <file file_name="board/clock_config.c">
+        <configuration Name="Release" build_exclude_from_build="No" />
+      </file>
+      <file file_name="board/pin_mux.c" />
+      <file file_name="board/pin_mux.h" />
+      <file file_name="board/clock_config.h">
+        <configuration Name="Release" build_exclude_from_build="No" />
+      </file>
+    </folder>
+    <folder Name="Driver Files">
+      <file file_name="drivers/fsl_cache.c" />
+      <file file_name="drivers/fsl_cache.h" />
+      <file file_name="drivers/fsl_clock.c" />
+      <file file_name="drivers/fsl_clock.h" />
+      <file file_name="drivers/fsl_common.c" />
+      <file file_name="drivers/fsl_common.h" />
+      <file file_name="drivers/fsl_flexspi.c" />
+      <file file_name="drivers/fsl_flexspi.h" />
+      <file file_name="drivers/fsl_iomuxc.h" />
+      <file file_name="drivers/usr_std.h" />
+    </folder>
+    <configuration
+      CMSIS_CORE="Yes"
+      Name="Release"
+      arm_fp_abi="Hard"
+      arm_fpu_type="VFPv4-D32"
+      arm_linker_heap_size="256"
+      arm_linker_stack_size="256"
+      arm_linker_treat_warnings_as_errors="No"
+      c_preprocessor_definitions="EXCLUDE_LIBC"
+      c_preprocessor_undefinitions="__ICACHE_PRESENT;__DCACHE_PRESENT"
+      default_code_section="PrgCode"
+      default_const_section="PrgCode"
+      default_data_section="PrgData"
+      default_zeroed_section="PrgData"
+      gcc_debugging_level="Level 3"
+      gcc_entry_point="ProgramPage"
+      gcc_optimization_level="None"
+      link_dependent_projects="Yes"
+      link_include_standard_libraries="No"
+      link_symbol_definitions=""
+      linker_keep_symbols="_vectors;_Dummy;FlashDevice;EraseChip;EraseSector;ProgramPage;Init;UnInit;Verify;BlankCheck;SEGGER_OPEN_Program;SEGGER_OPEN_Erase"
+      linker_map_file="Yes"
+      linker_memory_map_file="$(ProjectDir)/MIMXRT1052xxxxx_MemoryMap.xml"
+      linker_section_placement_file="$(ProjectDir)/Placement_release.xml" />
+  </project>
+  <configuration
+    Name="Debug"
+    arm_target_interface_type="SWD"
+    c_preprocessor_definitions="DEBUG"
+    gcc_debugging_level="Level 3"
+    gcc_optimization_level="None"
+    target_script_file="$(ProjectDir)/MIMXRT1052_Target.js" />
+  <configuration
+    Name="Release"
+    c_preprocessor_definitions="NDEBUG;RELEASE"
+    gcc_debugging_level="None"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="Level 1"
+    link_include_standard_libraries="Yes" />
+</solution>
